@@ -1,50 +1,26 @@
+// load resources and move to main_menu
+
 function setup(){
-  const loader = new PIXI.Loader();
-  loader.add("font_bm_bonefish","../fonts/Bonefish_white.fnt");
-  loader.add("font_bm_fivebyfive_white","../fonts/FiveByFive_white.fnt");
-  loader.add("font_bm_genown_white","../fonts/GENOWN_white.fnt");
-  loader.add("font_bm_notepen_white","../fonts/Notepen_white.fnt");
-  loader.add("font_bm_st26k_white","../fonts/St26k_white.fnt");
-  loader.add("font_bm_teacherspet_white","../fonts/TeachersPet_white.fnt");
-  loader.load(mainMenu);
-}
+  console.log("Loading resources");
+  // fonts - bitmap
+  PIXI.Loader.shared.add("font_bm_bonefish","../fonts/Bonefish.fnt"); //handwritten cursive
+  PIXI.Loader.shared.add("font_bm_fivebyfive","../fonts/FiveByFive.fnt"); //caps, menu font
+  PIXI.Loader.shared.add("font_bm_genown","../fonts/GENOWN.fnt"); //title font, techy, almost illegible
+  PIXI.Loader.shared.add("font_bm_notepen","../fonts/Notepen.fnt"); //handwritten print
+  PIXI.Loader.shared.add("font_bm_st26k","../fonts/St26k.fnt"); //caps edgy, almost illegible
+  PIXI.Loader.shared.add("font_bm_teacherspet","../fonts/TeachersPet.fnt"); //large neat cursive
+  // fonts - ttf
+  PIXI.Loader.shared.add("font_ttf_bonefish","../fonts/Bonefish.ttf"); //handwritten cursive
+  PIXI.Loader.shared.add("font_ttf_fivebyfive","../fonts/FiveByFive.ttf"); //caps, menu font
+  PIXI.Loader.shared.add("font_ttf_genown","../fonts/GENOWN.ttf"); //title font, techy, almost illegible
+  PIXI.Loader.shared.add("font_ttf_notepen","../fonts/Notepen.ttf"); //handwritten print
+  PIXI.Loader.shared.add("font_ttf_st26k","../fonts/St26k.ttf"); //caps edgy, almost illegible
+  PIXI.Loader.shared.add("font_ttf_teacherspet","../fonts/TeachersPet.ttf"); //large neat cursive
 
-function mainMenu(){
-  let title =
-    new PIXI.BitmapText("ameloblast", {font: "48px GENOWN_white"});
-  title.anchor.set(0.5,0.5);
-  title.position.set(app.screen.width/2,150);
-
-  app.stage.addChild(title);
-
-  let menu_newgame =
-    new PIXI.BitmapText("new game", {font: "32px FiveByFive_white"});
-  menu_newgame.anchor.set(0.5,0.5);
-  menu_newgame.position.set(app.screen.width/2,app.screen.height/2);
-  menu_newgame.interactive = true;
-
-  menu_newgame.click = function(data){
-    app.stage.removeChildren();
-    app.ticker.add(delta => gameLoop(delta));
-  }
-
-  menu_newgame.mouseover = function(data){
-    this.isOver = true;
-    if(this.isdown)return
-
-    this.text = "!" + this.text + "!";
-  }
-
-  menu_newgame.mouseout = function(data){
-    this.isOver = true;
-    if(this.isdown)return
-
-    this.text = "new game";
-  }
-
-  app.stage.addChild(menu_newgame);
-}
-
-function gameLoop(delta){
-  state(delta);
+  // textures
+  PIXI.Loader.shared.add("texture_dialogue_box", "../gfx/dialogue_box.png");
+  PIXI.Loader.shared.add("texture_dialogue_continue", "../gfx/dialogue_continue.png");
+  PIXI.Loader.shared.add("texture_dialogue_return", "../gfx/dialogue_return.png");
+  PIXI.Loader.shared.add("texture_travel_bg", "../gfx/travel_bg.png");
+  PIXI.Loader.shared.load(mainMenu);
 }

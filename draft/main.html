@@ -6,6 +6,15 @@
 </head>
   <script src="../lib/pixi.js"></script>
   <!-- <script src="../lib/pixi.min.js"></script> -->
+  <script src="../data/strings.js"></script>
+  <script src="../data/information.js"></script>
+
+  <script src="view/partial/menu_option.js"></script>
+  <script src="view/birth.js"></script>
+  <script src="view/death.js"></script>
+  <script src="view/dialogue_box.js"></script>
+  <script src="view/main_menu.js"></script>
+
   <script src="game.js"></script>
   <script src="setup.js"></script>
 <body>
@@ -14,9 +23,7 @@
     if(!PIXI.utils.isWebGLSupported()){
       type = "canvas"
     }
-    //Create a Pixi Application
     var app = new PIXI.Application({width: 800, height: 600});
-    //Add the canvas that Pixi automatically created for you to the HTML document
     document.body.appendChild(app.view);
 
     setup();

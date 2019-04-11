@@ -13,50 +13,10 @@
     }
     //Create a Pixi Application
     var app = new PIXI.Application({width: 800, height: 600});
-    const loader = new PIXI.Loader();
-    loader.add("font_bm_white_bonefish","../fonts_bm_white/Bonefish.fnt");
-    loader.add("font_bm_white_fivebyfive","../fonts_bm_white/FiveByFive.fnt");
-    loader.add("font_bm_white_genown","../fonts_bm_white/GENOWN.fnt");
-    loader.add("font_bm_white_notepen","../fonts_bm_white/Notepen.fnt");
-    loader.add("font_bm_white_st26k","../fonts_bm_white/St26k.fnt");
-    loader.add("font_bm_white_teacherspet","../fonts_bm_white/TeachersPet.fnt");
-    loader.load(mainMenu);
 
     //Add the canvas that Pixi automatically created for you to the HTML document
     document.body.appendChild(app.view);
 
-    function mainMenu(){
-      let title = new PIXI.BitmapText("ameloblast", {font: "48px GENOWN", tint:0xFFFFFF});
-      title.anchor.set(0.5,0.5);
-      title.position.set(400,150);
-
-      app.stage.addChild(title);
-
-      let newgame = new PIXI.BitmapText("new game", {font: "32px FiveByFive"});
-      newgame.anchor.set(0.5,0.5);
-      newgame.position.set(400,300);
-      newgame.interactive = true;
-
-      newgame.click = function(data){
-        app.clear();
-      }
-
-      newgame.mouseover = function(data){
-        this.isOver = true;
-        if(this.isdown)return
-
-        this.text = "!" + this.text + "!";
-      }
-
-      newgame.mouseout = function(data){
-        this.isOver = true;
-        if(this.isdown)return
-
-        this.text = "new game";
-      }
-
-      app.stage.addChild(newgame);
-  }
   </script>
 </body>
 </html>

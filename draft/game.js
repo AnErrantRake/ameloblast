@@ -1,20 +1,27 @@
-var state = new_game;
+var status; //global var for retaining current party status - init in birth
 
-function new_game(delta){
-    let stateName =
-      new PIXI.BitmapText("new game", {font: "48px GENOWN_white"});
-    stateName.anchor.set(0.5,0.5);
-    stateName.position.set(app.screen.width/2,150);
+function game(){
+  // set view to story dialogue w/ intro message
 
-    app.stage.addChild(stateName);
-    setTimeout(function(){app.stage.removeChildren(); state = end_game},5000)
+  // set view to naming party
+
+  // set view to buy supplies
+
+  // set view to story dialogue w/ start journey message
+
+  // set view to pause w/ location
+
+  // set view to travel w/ location and status
+
+  // update view w/ status, location and events each tick
+
+  // set view to story dialogue w/ landmark message
+
+  // set view to pause w/ location and landmark
 }
 
-function end_game(delta){
-    let stateName =
-      new PIXI.BitmapText("end game", {font: "48px GENOWN_white"});
-    stateName.anchor.set(0.5,0.5);
-    stateName.position.set(app.screen.width/2,150);
+function reset(){
+  // resets the game state before returning to main menu
 
-    app.stage.addChild(stateName);
+  mainMenu();
 }
