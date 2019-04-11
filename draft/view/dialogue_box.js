@@ -1,42 +1,25 @@
-// full screen text box
-function buildDialogueBox (text, callback, hasNext) {
-  console.log("Building Dialogue for " + text);
+// full screen text box - takes an array of size-limited strings
+function buildDialogueBox (textArray, callback, hasNext) {
+  console.log("Building Dialogue for " + textArray);
   // background
   let background = new PIXI.Sprite(
     PIXI.Loader.shared.resources.texture_dialogue_box.texture);
 
   // text
-  //TODO: increase fidelity of line breaks - doesn't handle large amounts of uppercase
-  // also will break mid-word without more intelligent handling
-  let endOfLine = 21; //characters per line
-  let endOfPage = 11; //lines per page
-  let maxChar = endOfLine * endOfPage; //not including \n chars
+  const style = new PIXI.TextStyle({
+    fill: "Black",
+    align: "left",
+    fontFamily: "font_ttf_notepen",
+    fontSize: 24,
+    wordWrap: true,
+    wordWrapWidth: 300
+  });
 
-  if(text.length > (maxChar*2)){
-    throw ('Input to dialogue overlong - malformed data: ' + text);
-  }
-
-  let outputPage1 = "";
-  let outputPage2 = "";
-  for(var i = 0; i < (text.length / endOfLine); i++){
-    if(outputPage1.length + endOfLine < maxChar){
-      outputPage1 = outputPage1 + text.substr((i * endOfLine), endOfLine) + "\n";
-    }
-    else{
-      outputPage2 = outputPage2 + text.substr((i * endOfLine), endOfLine) + "\n";
-    }
-  }
-  let page1 =
-    new PIXI.BitmapText(outputPage1,
-      {font: "32px Notepen",
-       tint: "0x000000"});
+  let page1 = new PIXI.Text(textArray[0],style);
   page1.position.set(120,70);
 
-  let page2 =
-    new PIXI.BitmapText(outputPage2,
-      {font: "32px Notepen",
-       tint: "0x000000"});
-  page2.position.set(425,70);
+  let page2 = new PIXI.Text(textArray[1],style);
+  page2.position.set(430,70);
 
   // control button
   let button;

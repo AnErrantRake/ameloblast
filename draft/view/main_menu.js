@@ -19,7 +19,7 @@ function mainMenu(){
 
   let newgame = buildMenuOption(str_mainMenu['newgame'],menuItemSize);
   newgame.position.set(app.screen.width/2,app.screen.height/2);
-  newgame.on('pointerdown', birthIntro);
+  newgame.on('pointerdown', start);
   app.stage.addChild(newgame);
 
   let learn = buildMenuOption(str_mainMenu['learn'],menuItemSize);
