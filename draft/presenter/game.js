@@ -1,7 +1,15 @@
 var status; //global var for retaining current party status
 
+function mainMenu(){
+  console.log("Opening main menu");
+  // clear the canvas
+  app.stage.removeChildren();
+
+  app.stage.addChild(buildMainMenu());
+}
+
 function start(){
-  //status = new Status();
+  status = new Status();
   birthIntro();
 }
 
