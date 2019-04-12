@@ -13,7 +13,6 @@ function birthNaming(){
   app.stage.removeChildren();
 
   let nameView = buildNamingView();
-  console.log(nameView);
 
   // input handling
   let maxLength = 10;
@@ -42,8 +41,8 @@ function birthSupplies(){
   // clear the canvas
   app.stage.removeChildren();
 
-  let tradeView = buildTradeView("Trader Name");
-
+  let tradeView = buildTradeView("Click for basic supplies");
+  tradeView.dummy.on('pointerdown', travel);
 
   app.stage.addChild(tradeView);
 }

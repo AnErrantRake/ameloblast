@@ -21,6 +21,7 @@ function buildMenuOption (label, size) {
   cage.addChild(txtBG,textSprite);
   cage.interactive = true;
   cage.buttonMode = true;
+  cage.textBox = textSprite;
 
   return cage;
 }

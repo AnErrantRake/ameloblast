@@ -1,7 +1,7 @@
 // naming - player input for names
 
 function buildNamingView(){
-  console.log("Building Naming View");
+  console.log("Building NamingView");
   // text
   let instructions =
     new PIXI.BitmapText(str_story['birth_naming'],

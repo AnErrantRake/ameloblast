@@ -13,3 +13,12 @@ var str_story = {
   death_success: ["A message indicating full completion",""],
   death_failure: ["A message indicating partial completion",""],
 }
+
+var str_travel = {
+  inst_rest: "Press ENTER to pause",
+  status_date: "Date:",
+  status_environment: "Oral Health:",
+  status_health: "Food Weather:",
+  status_supplies: "Supplies:",
+  status_next_landmark: "Next landmark:",
+}

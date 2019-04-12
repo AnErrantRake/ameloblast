@@ -13,6 +13,18 @@ function start(){
   birthIntro();
 }
 
+function travel(){
+  console.log("Opening main menu");
+  // clear the canvas
+  app.stage.removeChildren();
+
+  let stage = buildTravelView();
+  app.stage.addChild(stage);
+
+  
+
+}
+
 function reset(){
   // resets the game state before returning to main menu
   status = null;

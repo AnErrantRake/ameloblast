@@ -3,7 +3,6 @@ class gameLocation {
   constructor() {
     this.previousLandmark = 0;
     this.nextLandmark = 0;
-    this.totalDistanceTraveled = 0;
     this.position = 0;
   }
 
@@ -11,6 +10,6 @@ class gameLocation {
     if(nextLandmark.position <= totalDistanceTraveled){
       return 0;
     }
-    return nextLandmark.position - totalDistanceTraveled;
+    return nextLandmark.position - position;
   }
 }
