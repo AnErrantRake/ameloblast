@@ -41,8 +41,15 @@ function birthSupplies(){
   // clear the canvas
   app.stage.removeChildren();
 
+  let instructions =
+    new PIXI.BitmapText(str_story['birth_supplies'],
+      {font: "32px FiveByFive",
+       tint: "0xFFFFFF"});
+  instructions.anchor.set(0.5,0.0);
+  instructions.position.set(app.screen.width/2,15);
+
   let tradeView = buildTradeView("Click for basic supplies");
   tradeView.dummy.on('pointerdown', travel);
 
-  app.stage.addChild(tradeView);
+  app.stage.addChild(instructions, tradeView);
 }
