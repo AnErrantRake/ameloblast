@@ -10,13 +10,13 @@ function buildTravelView(){
 
   // pause button
   let pauseButton = buildMenuOption(str_travel['inst_rest'], 40);
-  pauseButton.position.set(app.screen.width/2, 388);
+  pauseButton.position.set(app.screen.width/2, 380);
 
   // background
   let txtBG = new PIXI.Graphics();
   // Rectangle
   txtBG.beginFill(0x000000);
-  txtBG.drawRect(0, pauseButton.y - (pauseButton.height/2), app.screen.width, pauseButton.height);
+  txtBG.drawRect(15, pauseButton.y - (pauseButton.height/2), app.screen.width-15, pauseButton.height);
   txtBG.endFill();
 
   // container
