@@ -15,7 +15,7 @@ var str_story = {
 }
 
 var str_travel = {
-  inst_rest: "Press ENTER to pause",
+  inst_rest: "Press here to rest",
   status_date: "Date:",
   status_environment: "Mealstorms:",
   status_health: "Oral Health:",

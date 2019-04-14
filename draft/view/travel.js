@@ -17,10 +17,11 @@ function buildTravelView(){
   // Rectangle
   txtBG.beginFill(0x000000);
   let border = 15;
-  txtBG.drawRect(pauseButton.x - (pauseButton.width/2) - border,
-                 pauseButton.y - (pauseButton.height/2) - border,
-                 pauseButton.width + border,
-                 pauseButton.height) + border;
+  txtBG.drawRect( pauseButton.x - (pauseButton.width/2) - border,
+                  pauseButton.y - (pauseButton.height/2) - border,
+                  pauseButton.width + border,
+                  pauseButton.height + border
+                );
   txtBG.endFill();
 
   // container
