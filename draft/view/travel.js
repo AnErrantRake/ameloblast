@@ -9,6 +9,7 @@ function buildTravelView(){
   let pauseButton = buildMenuOption(str_travel['inst_rest'], 40);
   pauseButton.position.set(app.screen.width/2, 388);
   pauseButton.textBox.tint = "0x000000";
+  pauseButton.on('pointerdown', start);
 
   let status = buildTravelStatusView();
 
