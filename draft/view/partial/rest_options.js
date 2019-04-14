@@ -1,4 +1,4 @@
-// status overview for inactive travel i.e. rest
+// behavior modifers displayed on rest view
 function buildRestOptionsView(){
   console.log("Building RestOptionsView");
 

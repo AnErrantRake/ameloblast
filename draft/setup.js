@@ -4,7 +4,7 @@ function setup(){
   console.log("Loading resources");
   let debug = keyboard("Escape");
   debug.press = () => {
-    travel();
+    landmark();
   };
 
   // fonts - bitmap

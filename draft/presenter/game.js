@@ -1,3 +1,5 @@
+// state-dependent functions between view and model
+
 var status; //global var for retaining current party status
 
 function mainMenu(){
@@ -5,11 +7,14 @@ function mainMenu(){
   // clear the canvas
   app.stage.removeChildren();
 
-  app.stage.addChild(buildMainMenu());
+  let stage = buildMainMenu();
+  stage.newGame.on('pointerdown', start);
+  app.stage.addChild(stage);
 }
 
 function start(){
   status = new Status();
+//  status.
   birthIntro();
 }
 
@@ -25,7 +30,6 @@ function travel(){
 }
 
 function rest(){
-
   console.log("Opening Rest View");
   // clear the canvas
   app.stage.removeChildren();
@@ -35,27 +39,36 @@ function rest(){
   app.stage.addChild(stage);
 }
 
+function landmark(){
+  console.log("Opening Landmark View");
+  // clear the canvas
+  app.stage.removeChildren();
+
+  let stage = buildLandmarkView(status.location.nextLandmark);
+  // type-dependent listeners
+//  stage.actions.resumeTravel.on('pointerdown', travel);
+  app.stage.addChild(stage);
+}
+
+function deathFailure(){
+  console.log("Beginning failure sequence");
+  // clear the canvas
+  app.stage.removeChildren();
+
+  app.stage.addChild(buildDialogueBox(str_story['death_failure'], reset, false));
+}
+
+function deathSuccess(){
+  console.log("Beginning success sequence");
+  // clear the canvas
+  app.stage.removeChildren();
+
+  app.stage.addChild(buildDialogueBox(str_story['death_success'], reset, false));
+}
+
 function reset(){
   // resets the game state before returning to main menu
   status = null;
 
   mainMenu();
 }
-
-// set view to story dialogue w/ intro message
-
-// set view to naming party
-
-// set view to buy supplies
-
-// set view to story dialogue w/ start journey message
-
-// set view to pause w/ location
-
-// set view to travel w/ location and status
-
-// update view w/ status, location and events each tick
-
-// set view to story dialogue w/ landmark message
-
-// set view to pause w/ location and landmark

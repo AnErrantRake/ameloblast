@@ -1,4 +1,4 @@
-// status overview for inactive travel i.e. rest
+// menu options for rest view
 function buildRestActionsView(){
   console.log("Building RestActionsView");
 
