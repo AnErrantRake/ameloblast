@@ -20,6 +20,7 @@ function travel(){
 
   let stage = buildTravelView();
   stage.pauseButton.on('pointerdown', start);
+  console.log(stage);
   app.stage.addChild(stage);
 
 }
