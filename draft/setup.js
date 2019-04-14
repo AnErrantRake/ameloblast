@@ -10,9 +10,9 @@ function setup(){
   PIXI.Loader.shared.add("font_bm_st26k","../fonts/St26k.fnt"); //caps edgy, almost illegible
 
   // textures
-  PIXI.Loader.shared.add("texture_dialogue_box", "../gfx/dialogue_box.png");
-  PIXI.Loader.shared.add("texture_dialogue_continue", "../gfx/dialogue_continue.png");
-  PIXI.Loader.shared.add("texture_dialogue_return", "../gfx/dialogue_return.png");
-  PIXI.Loader.shared.add("texture_travel_bg", "../gfx/travel_bg.png");
+  PIXI.Loader.shared.add("texture_dialogue_box", "gfx/dialogue_box.png");
+  PIXI.Loader.shared.add("texture_dialogue_continue", "gfx/dialogue_continue.png");
+  PIXI.Loader.shared.add("texture_dialogue_return", "gfx/dialogue_return.png");
+  PIXI.Loader.shared.add("texture_travel_bg", "gfx/travel_bg.png");
   PIXI.Loader.shared.load(mainMenu);
 }
