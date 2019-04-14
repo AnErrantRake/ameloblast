@@ -14,10 +14,9 @@ function buildTravelView(){
                    ]
   const ameloblast = new PIXI.AnimatedSprite(textures);
   ameloblast.animationSpeed = (2/60); //2 frames per second
-  ameloblast.position.set(app.screen.width, 210);
+  ameloblast.position.set(600, 100);
   ameloblast.height = 150;
   ameloblast.width = 300;
-  ameloblast.anchor.set(1.0);
   ameloblast.play();
 
   // live status
@@ -40,8 +39,6 @@ function buildTravelView(){
 
   // container
   let cage = new PIXI.Container();
-  cage.height = app.screen.height;
-  cage.width = app.screen.width;
   cage.addChild(background, ameloblast, txtBG, status, pauseButton);
   cage.pauseButton = pauseButton;
   cage.status = status;

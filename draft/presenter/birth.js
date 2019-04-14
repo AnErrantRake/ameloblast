@@ -26,7 +26,8 @@ function birthNaming(){
       keyObjects = enableInputLogging(nameView.friendName, maxLength);
       enterKey.press = () => {
         if(nameView.friendName.text.length > 0){
-          disableInputLogging(keyObjects)
+          disableInputLogging(keyObjects);
+	  disableInputLogging(enterKey);
           birthSupplies();
         }
       }
