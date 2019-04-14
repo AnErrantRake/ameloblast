@@ -4,12 +4,12 @@ function buildRestView(){
   // status
   let status = buildRestStatusView();
   status.position.set(app.screen.width/2, app.screen.height/2);
-  actions.anchor.set(0.5,1.0); //centered, anchored to bottom
+  status.anchor.set(0.5,1.0); //centered, anchored to bottom
 
   // options
   let options = buildRestOptionsView();
   options.position.set(app.screen.width/2, app.screen.height/2);
-  actions.anchor.set(1.0,0.0); //right, anchored to top
+  options.anchor.set(1.0,0.0); //right, anchored to top
 
   // actions
   let actions = buildRestActionsView();
