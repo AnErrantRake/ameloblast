@@ -10,7 +10,7 @@ function buildMenuOption (label, size) {
        tint: "0xFFFFFF"});
   textSprite.anchor.set(0.5,0.35);
 
-  // background
+  // background for clicking
   let txtBG = new PIXI.Sprite(PIXI.Texture.BLACK);
   txtBG.width = textSprite.width;
   txtBG.height = textSprite.height;
@@ -21,7 +21,6 @@ function buildMenuOption (label, size) {
   cage.addChild(txtBG,textSprite);
   cage.interactive = true;
   cage.buttonMode = true;
-  cage.textBox = textSprite;
 
   return cage;
 }
