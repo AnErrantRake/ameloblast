@@ -22,5 +22,6 @@ function setup(){
   PIXI.Loader.shared.add("texture_amelo_mid", "gfx/amelo_mid.png");
   PIXI.Loader.shared.add("texture_amelo_left", "gfx/amelo_left.png");
   PIXI.Loader.shared.add("texture_amelo_right", "gfx/amelo_right.png");
+  PIXI.Loader.shared.add("texture_landmark_info_placeholder", "gfx/landmark_info_placeholder.png");
   PIXI.Loader.shared.load(mainMenu);
 }

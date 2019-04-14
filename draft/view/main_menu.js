@@ -19,7 +19,7 @@ function buildMainMenu(){
 
   // container
   let cage = new PIXI.Container();
-  cage.addChild(title, newgame, learn);
+  cage.addChild(title, newGame, learn);
   cage.newGame = newGame;
   cage.learn = learn;
 
