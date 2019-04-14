@@ -13,7 +13,9 @@ function buildTravelView(){
                     PIXI.Loader.shared.resources.texture_amelo_right.texture
                    ]
   const ameloblast = new PIXI.AnimatedSprite(textures);
-  ameloblast.animationSpeed = 1.0;
+  ameloblast.animationSpeed = (2/60); //2 frames per second
+  ameloblast.position.set(app.screen.width, 200);
+  ameloblast.anchor.set(1.0,1.0);
   ameloblast.play();
 
   // live status
