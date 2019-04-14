@@ -3,8 +3,8 @@ function buildRestStatusView(){
   console.log("Building RestStatusView");
 
   let step = 18;
-  let labelStyle = {font: step + "px FiveByFive", tint: "0x000000", align: "right"};
-  let dataStyle = {font: step + "px FiveByFive", tint: "0x000000", align: "left"};
+  let labelStyle = {font: step + "px FiveByFive", tint: "0xFFFFFF", align: "right"};
+  let dataStyle = {font: step + "px FiveByFive", tint: "0xFFFFFF", align: "left"};
   let center = app.screen.width/2;
   let startY = app.screen.height;
 
