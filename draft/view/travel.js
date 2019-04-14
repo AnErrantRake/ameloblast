@@ -5,6 +5,17 @@ function buildTravelView(){
   let background = new PIXI.Sprite(
     PIXI.Loader.shared.resources.texture_travel_bg.texture);
 
+  // ameloblast
+  const textures = [
+                    PIXI.Loader.shared.resources.texture_amelo_mid.texture,
+                    PIXI.Loader.shared.resources.texture_amelo_left.texture,
+                    PIXI.Loader.shared.resources.texture_amelo_mid.texture,
+                    PIXI.Loader.shared.resources.texture_amelo_right.texture
+                   ]
+  const ameloblast = new PIXI.AnimatedSprite(textures);
+  ameloblast.animationSpeed = 1.0;
+  ameloblast.play();
+
   // live status
   let status = buildTravelStatusView();
 
@@ -12,9 +23,8 @@ function buildTravelView(){
   let pauseButton = buildMenuOption(str_travel['inst_rest'], 40);
   pauseButton.position.set(app.screen.width/2, 380);
 
-  // background
+  // background for pause button
   let txtBG = new PIXI.Graphics();
-  // Rectangle
   txtBG.beginFill(0x000000);
   let border = 5;
   txtBG.drawRect( pauseButton.x - (pauseButton.width/2) - border,
@@ -26,7 +36,7 @@ function buildTravelView(){
 
   // container
   let cage = new PIXI.Container();
-  cage.addChild(background, txtBG, status, pauseButton);
+  cage.addChild(background, ameloblast, txtBG, status, pauseButton);
   cage.pauseButton = pauseButton;
   cage.status = status;
 
