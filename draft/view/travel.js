@@ -28,7 +28,9 @@ function buildTravelView(){
 
   // container
   let cage = new PIXI.Container();
-  cage.addChild(background, txtBG, textSprite);
+  cage.addChild(background);
+  cage.addChild(txtBG);
+  cage.addChild(textSprite);
   cage.pauseButton = txtBG;
   cage.status = status;
 
