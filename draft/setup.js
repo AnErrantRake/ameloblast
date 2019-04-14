@@ -2,6 +2,11 @@
 
 function setup(){
   console.log("Loading resources");
+  let debug = keyboard("Escape");
+  debug.press = () => {
+    travel();
+  };
+
   // fonts - bitmap
   PIXI.Loader.shared.add("font_bm_bonefish","../fonts/Bonefish.fnt"); //handwritten cursive
   PIXI.Loader.shared.add("font_bm_fivebyfive","../fonts/FiveByFive.fnt"); //caps, menu font
@@ -17,5 +22,5 @@ function setup(){
   PIXI.Loader.shared.add("texture_amelo_mid", "gfx/amelo_mid.png");
   PIXI.Loader.shared.add("texture_amelo_left", "gfx/amelo_left.png");
   PIXI.Loader.shared.add("texture_amelo_right", "gfx/amelo_right.png");
-  PIXI.Loader.shared.load(travel);
+  PIXI.Loader.shared.load(mainMenu);
 }
