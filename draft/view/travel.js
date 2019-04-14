@@ -5,24 +5,30 @@ function buildTravelView(){
   let background = new PIXI.Sprite(
     PIXI.Loader.shared.resources.texture_travel_bg.texture);
 
+  // live status
+  let status = buildTravelStatusView();
+
+  // pause button
+
   // text
   let textSprite =
     new PIXI.BitmapText(str_travel['inst_rest'],
       {font: "40px FiveByFive",
        tint: "0xFFFFFF"});
+  textSprite.position.set(app.screen.width/2, 388);
   textSprite.anchor.set(0.5,0.35);
 
   // background
   let txtBG = new PIXI.Sprite(PIXI.Texture.BLACK);
   txtBG.width = textSprite.width;
   txtBG.height = textSprite.height;
+  txtBG.position.set(app.screen.width/2, 388);
   txtBG.anchor.set(0.5,0.5);
 
-  let status = buildTravelStatusView();
 
   // container
   let cage = new PIXI.Container();
-  cage.addChild(background, status, txtBG, textSprite);
+  cage.addChild(txtBG, textSprite);
   cage.pauseButton = txtBG;
   cage.status = status;
 
