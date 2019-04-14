@@ -19,8 +19,8 @@ function buildTravelView(){
   let border = 15;
   txtBG.drawRect( pauseButton.x - (pauseButton.width/2) - border,
                   pauseButton.y - (pauseButton.height/2) - border,
-                  pauseButton.width + border,
-                  pauseButton.height + border
+                  pauseButton.width + (border*2),
+                  pauseButton.height + (border*2)
                 );
   txtBG.endFill();
 
