@@ -17,14 +17,13 @@ function buildTravelView(){
   txtBG.width = textSprite.width;
   txtBG.height = textSprite.height;
   txtBG.anchor.set(0.5,0.5);
-  txtBG.on('pointerdown', start);
 
   let status = buildTravelStatusView();
 
   // container
   let cage = new PIXI.Container();
   cage.addChild(background, status, txtBG, textSprite);
-  cage.pauseButton = pauseButton;
+  cage.pauseButton = txtBG;
   cage.status = status;
 
   return cage;

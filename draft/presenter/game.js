@@ -19,9 +19,8 @@ function travel(){
   app.stage.removeChildren();
 
   let stage = buildTravelView();
+  stage.pauseButton.on('pointerdown', start);
   app.stage.addChild(stage);
-
-  
 
 }
 
