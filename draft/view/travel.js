@@ -42,6 +42,7 @@ function buildTravelView(){
   cage.addChild(background, ameloblast, txtBG, status, pauseButton);
   cage.pauseButton = pauseButton;
   cage.status = status;
+  cage.vehicle = ameloblast;
 
   return cage;
 }
