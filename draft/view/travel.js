@@ -16,7 +16,7 @@ function buildTravelView(){
   let txtBG = new PIXI.Graphics();
   // Rectangle
   txtBG.beginFill(0x000000);
-  txtBG.drawRect(pauseButton.x, pauseButton.y, app.screen.width, pauseButton.height);
+  txtBG.drawRect(0, pauseButton.y - (pauseButton.height/2), app.screen.width, pauseButton.height);
   txtBG.endFill();
 
   // container
