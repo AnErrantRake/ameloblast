@@ -14,7 +14,7 @@ function buildTravelView(){
                    ]
   const ameloblast = new PIXI.AnimatedSprite(textures);
   ameloblast.animationSpeed = (2/60); //2 frames per second
-  ameloblast.position.set(app.screen.width, 170);
+  ameloblast.position.set(app.screen.width, 210);
   ameloblast.height = 150;
   ameloblast.width = 300;
   ameloblast.anchor.set(0.0,1.0);
