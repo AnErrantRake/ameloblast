@@ -17,7 +17,8 @@ function buildTravelView(){
   ameloblast.position.set(app.screen.width, app.screen.width/2);
   ameloblast.height = 100;
   ameloblast.width = 100;
-  ameloblast.anchor.set(0.0,1.0);
+  console.log(ameloblast.height);
+  ameloblast.anchor.set(0.5,1.0);
   ameloblast.play();
 
   // live status
