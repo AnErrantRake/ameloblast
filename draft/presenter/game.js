@@ -14,14 +14,25 @@ function start(){
 }
 
 function travel(){
-  console.log("Opening main menu");
+  console.log("Opening Travel View");
   // clear the canvas
   app.stage.removeChildren();
 
   let stage = buildTravelView();
-  stage.pauseButton.on('pointerdown', start);
+  stage.pauseButton.on('pointerdown', rest);
   app.stage.addChild(stage);
 
+}
+
+function rest(){
+
+  console.log("Opening Rest View");
+  // clear the canvas
+  app.stage.removeChildren();
+
+  let stage = buildRestView();
+//  stage.pauseButton.on('pointerdown', start);
+  app.stage.addChild(stage);
 }
 
 function reset(){
