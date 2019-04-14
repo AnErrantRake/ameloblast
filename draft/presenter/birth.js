@@ -27,7 +27,7 @@ function birthNaming(){
       enterKey.press = () => {
         if(nameView.friendName.text.length > 0){
           disableInputLogging(keyObjects);
-	  disableInputLogging(enterKey);
+          disableInputLogging([enterKey]);
           birthSupplies();
         }
       }
