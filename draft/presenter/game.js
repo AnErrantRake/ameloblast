@@ -14,7 +14,7 @@ function mainMenu(){
 
 function start(){
   status = new Status();
-//  status.
+  status.location = new Location();
   birthIntro();
 }
 
