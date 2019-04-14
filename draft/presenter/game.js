@@ -31,7 +31,7 @@ function rest(){
   app.stage.removeChildren();
 
   let stage = buildRestView();
-//  stage.pauseButton.on('pointerdown', start);
+  stage.actions.resumeTravel.on('pointerdown', travel);
   app.stage.addChild(stage);
 }
 
