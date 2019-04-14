@@ -5,8 +5,8 @@ function buildRestStatusView(){
   let step = 18;
   let labelStyle = {font: step + "px FiveByFive", tint: "0xFFFFFF", align: "right"};
   let dataStyle = {font: step + "px FiveByFive", tint: "0xFFFFFF", align: "left"};
-  let center = app.screen.width/2;
-  let startY = app.screen.height;
+  let center = 0;
+  let startY = 0;
 
   // date
   let dateLabel = new PIXI.BitmapText(str_travel['status_date'], labelStyle);
