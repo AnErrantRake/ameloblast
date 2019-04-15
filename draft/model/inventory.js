@@ -1,10 +1,7 @@
 // counters for possible possessions
 class Inventory {
   constructor() {
-    this.toothbrush = 0;
-    this.toothpaste = 0;
-    this.floss = 0;
-    this.chewingGum = 0;
-    this.mouthwash = 0;
+    this.toothbrush = {count: 5.0, unit: "brushes"};
+    this.toothpaste = {count: 10.0, unit: "fl oz"};
   }
 }
