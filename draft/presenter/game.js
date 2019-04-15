@@ -37,9 +37,9 @@ function travelUI(){
   if(app.stage.travelView){
     //app.stage.travelView.status.date = ;
     //app.stage.travelView.status.environment = ;
-    app.stage.travelView.status.health = "not what it was";
-    app.stage.travelView.status.supplies = "also that";
-    app.stage.travelView.status.nextLandmark = "THE MOON!";
+    app.stage.children[0].status.health = "not what it was";
+    app.stage.children[0].status.supplies = "also that";
+    app.stage.children[0].status.nextLandmark = "THE MOON!";
   }
 }
 
