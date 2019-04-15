@@ -12,7 +12,7 @@ function buildDialogueBox (textArray, callback, hasNext) {
     fontFamily: "font_ttf_notepen",
     fontSize: 24,
     wordWrap: true,
-    wordWrapWidth: 300
+    wordWrapWidth: 280
   });
 
   let page1 = new PIXI.Text(textArray[0],style);

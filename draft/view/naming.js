@@ -2,11 +2,18 @@
 
 function buildNamingView(){
   console.log("Building NamingView");
+
   // text
-  let instructions =
-    new PIXI.BitmapText(str_story['birth_naming'],
-      {font: "32px FiveByFive",
-       tint: "0xFFFFFF"});
+  const instructionStyle = new PIXI.TextStyle({
+    fill: "White",
+    align: "center",
+    fontFamily: "font_ttf_fivebyfive",
+    fontSize: 24,
+    wordWrap: true,
+    wordWrapWidth: 600
+  });
+
+  let instructions = new PIXI.Text(str_story['birth_naming'],instructionStyle);
   instructions.anchor.set(0.5,0.0);
   instructions.position.set(app.screen.width/2,15);
 
