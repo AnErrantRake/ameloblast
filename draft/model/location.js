@@ -4,6 +4,7 @@ class GameLocation {
     this.previousLandmark = null;
     this.nextLandmark = null;
     this.position = -1;
+    this.positionUnit = "parsecs";
   }
 
   distanceToNext(){
