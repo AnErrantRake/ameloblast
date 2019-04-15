@@ -1,8 +1,8 @@
 // relative and absolute world location
 class gameLocation {
   constructor() {
-    this.previousLandmark = 0;
-    this.nextLandmark = 0;
+    this.previousLandmark = new Landmark();
+    this.nextLandmark = new Landmark();
     this.position = 0;
   }
 

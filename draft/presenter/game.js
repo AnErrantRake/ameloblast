@@ -14,7 +14,6 @@ function mainMenu(){
 
 function start(){
   status = new Status();
-  status.location = new gameLocation();
   birthIntro();
 }
 
@@ -43,9 +42,8 @@ function landmark(){
   console.log("Opening Landmark View");
   // clear the canvas
   app.stage.removeChildren();
-  let tmpLandmark = new Landmark();
 
-  let stage = buildLandmarkView(tmpLandmark);
+  let stage = buildLandmarkView(status.location.nextLandmark);
   // type-dependent listeners
 //  stage.actions.resumeTravel.on('pointerdown', travel);
   app.stage.addChild(stage);
