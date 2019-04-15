@@ -27,14 +27,10 @@ function travel(){
   stage.pauseButton.on('pointerdown', travelUI);
   app.stage.addChild(stage);
   app.stage.travelView = stage;
-
-  app.ticker.start();
-  //app.ticker.add(delta => gameLoop(delta));
 }
 
 function travelUI(){
   // view isn't updating
-  console.log(app.stage.travelView);
   if(app.stage.travelView){
     //app.stage.travelView.status.date.text = ;
     //app.stage.travelView.status.environment.text = ;
@@ -46,8 +42,6 @@ function travelUI(){
 
 function rest(){
   console.log("Opening Rest View");
-  app.ticker.stop();
-
   // clear the canvas
   app.stage.removeChildren();
 
@@ -83,7 +77,6 @@ function deathSuccess(){
 }
 
 function reset(){
-  app.ticker.stop();
   // resets the game state before returning to main menu
   status = null;
 
