@@ -6,6 +6,6 @@ class Status {
     this.friendName = "@@friendo";
     this.friendHealth = new Health();
     this.inventory = new Inventory();
-    this.location = new gameLocation();
+    this.location = new GameLocation();
   }
 }

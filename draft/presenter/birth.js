@@ -28,6 +28,10 @@ function birthNaming(){
         if(nameView.friendName.text.length > 0){
           disableInputLogging(keyObjects);
           disableInputLogging([enterKey]);
+
+          GAME_STATUS.playerName = nameView.playerName.text;
+          GAME_STATUS.friendName = nameView.friendName.text;
+          console.log(GAME_STATUS);
           birthSupplies();
         }
       }
