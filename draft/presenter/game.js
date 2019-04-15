@@ -33,6 +33,7 @@ function travel(){
 }
 
 function travelUI(){
+  // view isn't updating
   console.log(app.stage.travelView);
   if(app.stage.travelView){
     //app.stage.travelView.status.date = ;
