@@ -33,11 +33,13 @@ function travel(){
 }
 
 function travelUI(){
-  //app.stage.travelView.status.date = ;
-  //app.stage.travelView.status.environment = ;
-  app.stage.travelView.status.health = "not what it was";
-  app.stage.travelView.status.supplies = "also that";
-  app.stage.travelView.status.nextLandmark = "THE MOON!";
+  if(app.stage.travelView){
+    //app.stage.travelView.status.date = ;
+    //app.stage.travelView.status.environment = ;
+    app.stage.travelView.status.health = "not what it was";
+    app.stage.travelView.status.supplies = "also that";
+    app.stage.travelView.status.nextLandmark = "THE MOON!";
+  }
 }
 
 function rest(){
