@@ -33,6 +33,7 @@ function travel(){
 }
 
 function travelUI(){
+  console.log(app.stage.travelView);
   if(app.stage.travelView){
     //app.stage.travelView.status.date = ;
     //app.stage.travelView.status.environment = ;
