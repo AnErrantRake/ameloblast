@@ -7,8 +7,8 @@ function setup(){
     reset();
   };
 
-  app.autoStart = false;
-  app.ticker.add(travelUI);
+//  app.autoStart = false;
+//  app.ticker.add(travelUI);
 
   // fonts - bitmap
   PIXI.Loader.shared.add("font_bm_bonefish","../fonts/Bonefish.fnt"); //handwritten cursive
