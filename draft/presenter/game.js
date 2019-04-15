@@ -44,7 +44,7 @@ function landmark(){
   // clear the canvas
   app.stage.removeChildren();
   let tmpLandmark = new Landmark();
-  tmpLandmark.info = {title: "a title", description: "a description of multiple words and phrases"};
+
   let stage = buildLandmarkView(tmpLandmark);
   // type-dependent listeners
 //  stage.actions.resumeTravel.on('pointerdown', travel);
