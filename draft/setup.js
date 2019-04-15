@@ -7,6 +7,7 @@ function setup(){
     reset();
   };
 
+  app.autostart = false;
   app.ticker.add(travelUI);
 
   // fonts - bitmap

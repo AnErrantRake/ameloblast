@@ -26,18 +26,18 @@ function travel(){
   let stage = buildTravelView();
   stage.pauseButton.on('pointerdown', rest);
   app.stage.addChild(stage);
-  app.stage.view = stage;
+  app.stage.travelView = stage;
 
   app.ticker.start();
   //app.ticker.add(delta => gameLoop(delta));
 }
 
 function travelUI(){
-  //stage.status.date = ;
-  //stage.status.environment = ;
-  stage.status.health = "not what it was";
-  stage.status.supplies = "also that";
-  stage.status.nextLandmark = "THE MOON!";
+  //app.stage.travelView.status.date = ;
+  //app.stage.travelView.status.environment = ;
+  app.stage.travelView.status.health = "not what it was";
+  app.stage.travelView.status.supplies = "also that";
+  app.stage.travelView.status.nextLandmark = "THE MOON!";
 }
 
 function rest(){
@@ -79,6 +79,7 @@ function deathSuccess(){
 }
 
 function reset(){
+  app.ticker.stop();
   // resets the game state before returning to main menu
   status = null;
 
