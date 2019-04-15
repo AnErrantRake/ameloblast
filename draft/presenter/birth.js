@@ -42,10 +42,17 @@ function birthSupplies(){
   // clear the canvas
   app.stage.removeChildren();
 
-  let instructions =
-    new PIXI.BitmapText(str_story['birth_supplies'],
-      {font: "32px FiveByFive",
-       tint: "0xFFFFFF"});
+  // text
+  const instructionsStyle = new PIXI.TextStyle({
+    fill: "White",
+    align: "center",
+    fontFamily: "font_ttf_fivebyfive",
+    fontSize: 24,
+    wordWrap: true,
+    wordWrapWidth: 600
+  });
+
+  let instructions = new PIXI.Text(str_story['birth_supplies'],instructionsStyle);
   instructions.anchor.set(0.5,0.0);
   instructions.position.set(app.screen.width/2,15);
 
