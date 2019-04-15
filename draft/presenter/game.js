@@ -1,6 +1,6 @@
 // state-dependent functions between view and model
 
-window.status; //global var for retaining current party status
+var SYSTEM_STATUS = new Status(); //global var for retaining current party status
 
 function mainMenu(){
   console.log("Opening main menu");
@@ -13,7 +13,7 @@ function mainMenu(){
 }
 
 function start(){
-  window.status = new Status();
+  SYSTEM_STATUS = new Status();
   birthIntro();
 }
 
@@ -43,7 +43,7 @@ function landmark(){
   // clear the canvas
   app.stage.removeChildren();
 
-  let stage = buildLandmarkView(window.status.location.nextLandmark);
+  let stage = buildLandmarkView(SYSTEM_STATUS.location.nextLandmark);
   // type-dependent listeners
 //  stage.actions.resumeTravel.on('pointerdown', travel);
   app.stage.addChild(stage);
