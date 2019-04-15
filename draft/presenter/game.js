@@ -1,9 +1,10 @@
 // state-dependent functions between view and model
 
-var GAME_STATUS = new Status(); //global var for retaining current party status
+// global var for retaining current party status
+var GAME_STATUS = new Status();
 
 function mainMenu(){
-  console.log("Opening main menu");
+  console.log("Opening Main Menu");
   // clear the canvas
   app.stage.removeChildren();
 
@@ -25,11 +26,24 @@ function travel(){
   let stage = buildTravelView();
   stage.pauseButton.on('pointerdown', rest);
   app.stage.addChild(stage);
+  app.stage.view = stage;
 
+  app.ticker.start();
+  //app.ticker.add(delta => gameLoop(delta));
+}
+
+function travelUI(){
+  //stage.status.date = ;
+  //stage.status.environment = ;
+  stage.status.health = "not what it was";
+  stage.status.supplies = "also that";
+  stage.status.nextLandmark = "THE MOON!";
 }
 
 function rest(){
   console.log("Opening Rest View");
+  app.ticker.stop();
+
   // clear the canvas
   app.stage.removeChildren();
 
@@ -45,7 +59,6 @@ function landmark(){
 
   let stage = buildLandmarkView(GAME_STATUS.location.nextLandmark);
   // type-dependent listeners
-//  stage.actions.resumeTravel.on('pointerdown', travel);
   app.stage.addChild(stage);
 }
 

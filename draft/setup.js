@@ -7,6 +7,8 @@ function setup(){
     reset();
   };
 
+  app.ticker.add(travelUI);
+
   // fonts - bitmap
   PIXI.Loader.shared.add("font_bm_bonefish","../fonts/Bonefish.fnt"); //handwritten cursive
   PIXI.Loader.shared.add("font_bm_fivebyfive","../fonts/FiveByFive.fnt"); //caps, menu font
