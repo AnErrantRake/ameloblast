@@ -62,10 +62,10 @@ function buildTravelStatusView(){
                 nextLandmarkLabel, nextLandmarkData
               );
   cage.date = dateData.text;
-  cage.environment = environData.text;
-  cage.health = healthData.text;
-  cage.supplies = suppliesData.text;
-  cage.nextLandmark = nextLandmarkData.text;
+  cage.environment = environData;
+  cage.health = healthData;
+  cage.supplies = suppliesData;
+  cage.nextLandmark = nextLandmarkData;
 
   return cage;
 }

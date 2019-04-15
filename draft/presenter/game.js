@@ -36,10 +36,10 @@ function travelUI(){
   // view isn't updating
   console.log(app.stage.travelView);
   if(app.stage.travelView){
-    //app.stage.travelView.status.date = ;
-    //app.stage.travelView.status.environment = ;
-    app.stage.travelView.status.health = "not what it was";
-    app.stage.travelView.status.supplies = "also that";
+    //app.stage.travelView.status.date.text = ;
+    //app.stage.travelView.status.environment.text = ;
+    app.stage.travelView.status.health.text = "not what it was";
+    app.stage.travelView.status.supplies.text = "also that";
     app.stage.travelView.status.nextLandmark = "THE MOON!";
   }
 }
