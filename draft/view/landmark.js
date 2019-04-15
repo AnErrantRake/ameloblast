@@ -5,6 +5,8 @@ function buildLandmarkView(inputLandmark){
   // graphic
   let graphic = buildLandmarkGraphic(inputLandmark.graphic);
   graphic.position.set(0, 0); //400x600 image
+  graphic.height = app.screen.height;
+  graphic.width = app.screen.width/2;
   graphic.pivot.set(0,0); //top left corner
 
   // info box

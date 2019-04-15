@@ -8,7 +8,6 @@ function buildLandmarkActionsView(landmarkType){
 
   this.actions = ["resume travel", "talk to the man", "look around"]; //etc, type dependent TODO:don't store here
 
-  if(landmarkType == "info"){
   // resume travel
   let resumeTravel = buildMenuOption(actions[0],itemSize);
   resumeTravel.position.y = startY;
@@ -27,7 +26,6 @@ function buildLandmarkActionsView(landmarkType){
   cage.resumeTravel = resumeTravel;
   cage.talk = talk;
   cage.explore = explore;
-  }
 
   return cage;
 }
