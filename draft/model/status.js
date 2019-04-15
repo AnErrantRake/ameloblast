@@ -8,4 +8,16 @@ class Status {
     this.inventory = new Inventory();
     this.location = new GameLocation();
   }
+
+  getHealthAggregate(){
+    return "poor";
+  }
+
+  getSuppliesAggregate(){
+    return "low";
+  }
+
+  getRemainingDistanceAsString(){
+    return 18 + " parsecs";
+  }
 }

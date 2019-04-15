@@ -38,9 +38,9 @@ function travelUI(){
   if(app.stage.travelView){
     //app.stage.travelView.status.date.text = ;
     //app.stage.travelView.status.environment.text = ;
-    app.stage.travelView.status.health.text = "not what it was";
-    app.stage.travelView.status.supplies.text = "also that";
-    app.stage.travelView.status.nextLandmark = "THE MOON!";
+    app.stage.travelView.status.health.text = GAME_STATUS.getHealthAggregate();
+    app.stage.travelView.status.supplies.text = GAME_STATUS.getSuppliesAggregate();
+    app.stage.travelView.status.nextLandmark.text = GAME_STATUS.getRemainingDistanceAsString();
   }
 }
 
