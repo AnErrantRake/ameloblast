@@ -4,7 +4,7 @@ function buildLandmarkInfoView(landmarkInfo) {
 
   // text
   const titleStyle = new PIXI.TextStyle({
-    fill: "Black",
+    fill: "White",
     align: "center",
     fontFamily: "font_ttf_notepen",
     fontSize: 24,
@@ -13,11 +13,11 @@ function buildLandmarkInfoView(landmarkInfo) {
   });
 
   let title = new PIXI.Text(landmarkInfo.title,titleStyle);
-  page1.position.set(0,0);
+  title.position.set(0,0);
   title.anchor.set(0.5,0.5);
 
   const descStyle = new PIXI.TextStyle({
-    fill: "Black",
+    fill: "White",
     align: "left",
     fontFamily: "font_ttf_notepen",
     fontSize: 18,
@@ -27,7 +27,7 @@ function buildLandmarkInfoView(landmarkInfo) {
 
   let description = new PIXI.Text(landmarkInfo.description,descStyle);
   description.position.set(0,15);
-  title.anchor.set(0.5,0.5);
+  description.anchor.set(0.5,0.5);
 
   // container
   let cage = new PIXI.Container();
