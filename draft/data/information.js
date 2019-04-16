@@ -39,8 +39,8 @@ var LANDMARKS = [
         description: "An elderly woman is lying in the sun, ringed by crinkled papers. She's unresponsive, but some of the papers seem recoverable."
       },
       notes: {
-        journalEntry: ["Displayed text",
-                       "page2"],
+        journalEntry: ["Gingivitis - an indicator of poor oral hygiene\nFloss - associated with good oral hygiene, unknown relation to disease prevention\nDentist - regular visits associated with good health\nLongterm - regular cleaning more important than intensity",
+                       "Floss was used primarily for cleaning between the teeth. Other tools were sometimes used for the same purpose, but toothbrushes were not considered effective for this purpose. Gaps between the gum and the teeth were best avoided by regular flossing, although even our forebears struggled with this task. Self-care important to preventing disease."],
         citation: "CrocombeLA.2012Isic"
       },
       position: 1749
