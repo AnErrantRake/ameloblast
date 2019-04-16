@@ -56,8 +56,8 @@ var LANDMARKS = [
         description: "A literal skeleton sits atop an enormous pile of books. Its left hand grasps an ornately detailed and extensive manuscript titled 'The Lost Art of Dentistry'. Unfortunately it disintegrates when you pick it up, leaving only a bookmark covered in hand-written notes."
       },
       notes: {
-        journalEntry: ["Displayed text",
-                       "page2"],
+        journalEntry: ["The mealstorms may have taken my daughter, but now I understand the ancient's tools! I shall have my revenge, in this life or the next! When brushing, I must focus on the gumline and between the teeth. An electric toothbrush would prove useful in this. They also used abrasive toothpastes with active ingredients while brushing. Best of all for getting between the teeth is",
+                       "flossing. Daily. I haven't seen this anywhere, but the ancients believed 'chewing gum' worked to clear away food debris, which is what the damage-causing organisms rely on to survive. Plaque! They're talking about plaque! These organisms can also be destroyed by some mouthwashes. Maybe that's why mouthwashes have that burning sensation. A small price to pay in the name of health!"],
         citation: "GeethikaB.2016Ohp"
       },
       position: 2140
