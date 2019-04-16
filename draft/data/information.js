@@ -22,7 +22,7 @@ var LANDMARKS = [
         description: "A bearded skeleton of a man stands before you, waving a ream of papers wildly. You can't understand anything he's saying, but the writing on some of the pages looks legible."
       },
       notes: {
-        journalEntry: ["Dental plaque seems to be the cause of many of our mouth diseases. What plaque is remains unknown to me, but it seems toothbrushes and floss are effective for getting rid of it. Regular usage of both used to be considered healthy. The dental tomes recommend regular visits to a 'dentist', who could measure plaque and check for disease. High plaque could be identified by bleeding from the gums.","Brushing at least once a day seems most effective. Flossing is less clear, but at least a little. Visits to a dentist are highly recommended, if one can be found. Bleeding from probing indicates disease."],
+        journalEntry: ["Dental plaque seems to be the cause of many of our mouth diseases. What plaque is remains unknown to me, but it seems toothbrushes and floss are effective for getting rid of it. Regular usage of both used to be considered healthy. The dental tomes recommend regular visits to a 'dentist', who could measure plaque and check for disease. High plaque could be identified by bleeding from the gums.","\nBrushing at least once a day seems most effective.\nFlossing is less clear, but at least a little.\nVisits to a dentist are highly recommended, if one can be found.\nBleeding from probing indicates disease."],
         citation: "BroadbentJonathanM.2011Dpao"
       },
       position: 600
