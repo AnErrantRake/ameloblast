@@ -35,15 +35,6 @@ function buildTravelStatusView(){
   healthData.anchor.set(0.0,0.5);
   healthData.position.set(center + 15, healthLabel.position.y);
 
-  // supplies
-  let suppliesLabel = new PIXI.BitmapText(str_travel['status_supplies'], labelStyle);
-  suppliesLabel.anchor.set(1.0,0.5);
-  suppliesLabel.position.set(center, startY + (3 * step));
-
-  let suppliesData = new PIXI.BitmapText("x units", dataStyle);
-  suppliesData.anchor.set(0.0,0.5);
-  suppliesData.position.set(center + 15, suppliesLabel.position.y);
-
   // next landmark
   let nextLandmarkLabel = new PIXI.BitmapText(str_travel['status_next_landmark'], labelStyle);
   nextLandmarkLabel.anchor.set(1.0,0.5);
@@ -58,13 +49,11 @@ function buildTravelStatusView(){
   cage.addChild(dateLabel, dateData,
                 environLabel, environData,
                 healthLabel, healthData,
-                suppliesLabel, suppliesData,
                 nextLandmarkLabel, nextLandmarkData
               );
-  cage.date = dateData.text;
+  cage.date = dateData;
   cage.environment = environData;
   cage.health = healthData;
-  cage.supplies = suppliesData;
   cage.nextLandmark = nextLandmarkData;
 
   return cage;

@@ -2,7 +2,8 @@
 function buildLandmarkGraphic(landmarkGraphic) {
   console.log("Building LandmarkGraphic");
   // sidebar graphic
-  let sidebar = new PIXI.Sprite(landmarkGraphic);
+  //TODO: set and use the input
+  let sidebar = new PIXI.Sprite(PIXI.Loader.shared.resources.texture_landmark_info_placeholder.texture);
 
   // container
   let cage = new PIXI.Container();

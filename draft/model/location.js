@@ -8,9 +8,18 @@ class GameLocation {
   }
 
   distanceToNext(){
-    if(nextLandmark.position <= position){
+    if(this.nextLandmark.location.position <= this.position){
       return 0;
     }
-    return nextLandmark.position - position;
+    return this.nextLandmark.location.position - this.position;
+  }
+
+  hasNext(){
+    return this.nextLandmark != null;
+  }
+
+  transfer(){
+    this.previousLandmark = this.nextLandmark;
+    this.nextLandmark = this.nextLandmark.location.nextLandmark;
   }
 }

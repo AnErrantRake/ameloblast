@@ -14,14 +14,9 @@ function buildMainMenu(){
   let newGame = buildMenuOption(str_mainMenu['newgame'],menuItemSize);
   newGame.position.set(app.screen.width/2,app.screen.height/2);
 
-  let learn = buildMenuOption(str_mainMenu['learn'],menuItemSize);
-  learn.position.set(app.screen.width/2,app.screen.height/2 + (menuItemSize * 1.5));
-
   // container
   let cage = new PIXI.Container();
-  cage.addChild(title, newGame, learn);
+  cage.addChild(title, newGame);
   cage.newGame = newGame;
-  cage.learn = learn;
-
   return cage;
 }

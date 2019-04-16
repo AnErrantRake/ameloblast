@@ -19,6 +19,11 @@ function buildTravelView(){
   ameloblast.width = 300;
   ameloblast.play();
 
+  // event view
+  let event = buildTravelEventView();
+  event.position.set(app.screen.width/2, 260);
+  event.visible = false;
+
   // live status
   let status = buildTravelStatusView();
 
@@ -39,10 +44,11 @@ function buildTravelView(){
 
   // container
   let cage = new PIXI.Container();
-  cage.addChild(background, ameloblast, txtBG, status, pauseButton);
+  cage.addChild(background, ameloblast, event, txtBG, status, pauseButton);
   cage.pauseButton = pauseButton;
-  cage.status = status;
   cage.vehicle = ameloblast;
+  cage.eventView = event;
+  cage.status = status;
 
   return cage;
 }

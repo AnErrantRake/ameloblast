@@ -7,17 +7,30 @@ class Status {
     this.friendHealth = new Health();
     this.inventory = new Inventory();
     this.location = new GameLocation();
+    this.isRunning = false;
+    this.isArrived = false;
   }
 
   getHealthAggregate(){
     return "poor";
   }
 
-  getSuppliesAggregate(){
-    return "low";
+  getRemainingDistanceAsString(){
+    return this.location.distanceToNext() + " " + this.location.positionUnit;
   }
 
-  getRemainingDistanceAsString(){
-    return 18 + " parsecs";
+  moveOn(){
+    this.location.transfer();
+    this.isArrived = false;
+  }
+
+  // time increment
+  update(){
+    if(this.location.hasNext()){
+      this.location.position += 1;
+      if(this.location.distanceToNext() <= 0){
+        this.isArrived = true;
+      }
+    }
   }
 }

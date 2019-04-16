@@ -1,4 +1,29 @@
 // new game builder
+function birth(){
+  birthWorld();
+  birthIntro();
+}
+
+// link landmarks
+function birthWorld(){
+  console.log("Birthing world");
+  GAME_STATUS.location.position = 0;
+  GAME_STATUS.location.previousLandmark = LANDMARKS[0];
+
+  // link landmark nodes - constructs the trail
+  let currentNode = GAME_STATUS.location.previousLandmark;
+  for(let i = 1; i < LANDMARKS.length; i++){
+    // link next landmark
+    currentNode.location.nextLandmark = LANDMARKS[i];
+    // provide link to previous
+    currentNode.location.nextLandmark.location.previousLandmark = currentNode;
+    // update currentNode for next round
+    currentNode = currentNode.location.nextLandmark;
+  }
+  // update player location
+  GAME_STATUS.location.nextLandmark = GAME_STATUS.location.previousLandmark.location.nextLandmark;
+}
+
 function birthIntro(){
   console.log("Beginning birth sequence");
   // clear the canvas
@@ -31,7 +56,6 @@ function birthNaming(){
 
           GAME_STATUS.playerName = nameView.playerName.text;
           GAME_STATUS.friendName = nameView.friendName.text;
-          console.log(GAME_STATUS);
           birthSupplies();
         }
       }
