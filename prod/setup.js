@@ -28,5 +28,19 @@ function setup(){
   PIXI.Loader.shared.add("texture_icon_up", "gfx/icon_up.png");
   PIXI.Loader.shared.add("texture_icon_down", "gfx/icon_down.png");
   PIXI.Loader.shared.add("texture_landmark_info_placeholder", "gfx/landmark_info_placeholder.png");
-  PIXI.Loader.shared.load(mainMenu);
+
+  // load fonts before loading assets and building main menu
+  WebFontConfig = {
+    custom: {
+      families: ['font_ttf_bonefish', 'font_ttf_fivebyfive', 'font_ttf_genown', 'font_ttf_notepen', 'font_ttf_st26k'],
+      urls: ['/stylesheet.css']
+    },
+    active: PIXI.Loader.shared.load(mainMenu),
+  };
+  WebFont.load({
+      custom: {
+        families: ['font_ttf_bonefish', 'font_ttf_fivebyfive', 'font_ttf_genown', 'font_ttf_notepen', 'font_ttf_st26k']
+      }
+    }
+  );
 }

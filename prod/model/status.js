@@ -1,14 +1,19 @@
 // game state
 class Status {
   constructor() {
-    this.playerName = "@@bucko";
     this.playerHealth = new Health();
-    this.friendName = "@@friendo";
-    this.friendHealth = new Health();
-    this.inventory = new Inventory();
+    this.inventory = new Inventory(50);
+    this.village = new Village();
     this.location = new GameLocation();
     this.isRunning = false;
     this.isArrived = false;
+  }
+
+  updateVillageBehavior(){
+    let keys = this.inventory.getKeys();
+    for(let i = 0; i < keys.length; i++){
+      this.village.inventory.setConsumption(keys[i], this.inventory.getConsumption(keys[i]));
+    }
   }
 
   getHealthAggregate(){

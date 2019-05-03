@@ -67,41 +67,41 @@ function rest(){
 
   stage.actions.resumeTravel.on('pointerdown', travel);
 
-  stage.options.toothbrushes.label.text = GAME_STATUS.inventory.toothbrushes.label;
-  stage.options.toothbrushes.data.text = GAME_STATUS.inventory.getToothbrushes();
-  stage.options.toothbrushes.consumption.text = GAME_STATUS.inventory.getToothbrushesConsumption();
-  stage.options.toothpaste.label.text = GAME_STATUS.inventory.toothpaste.label;
-  stage.options.toothpaste.data.text = GAME_STATUS.inventory.getToothpaste();
-  stage.options.toothpaste.consumption.text = GAME_STATUS.inventory.getToothpasteConsumption();
-  stage.options.floss.label.text = GAME_STATUS.inventory.floss.label;
-  stage.options.floss.data.text = GAME_STATUS.inventory.getFloss();
-  stage.options.floss.consumption.text = GAME_STATUS.inventory.getFlossConsumption();
-
+  stage.options.toothbrushes.label.text = GAME_STATUS.inventory.getLabel('toothbrushes');
+  stage.options.toothbrushes.data.text = GAME_STATUS.inventory.getCount('toothbrushes');
+  stage.options.toothbrushes.consumption.text = GAME_STATUS.inventory.getConsumption('toothbrushes');
   stage.options.toothbrushes.increaseButton.on('pointerdown', function(){
-    GAME_STATUS.inventory.increaseToothbrushesConsumption();
-    stage.options.toothbrushes.consumption.text = GAME_STATUS.inventory.getToothbrushesConsumption();
+    GAME_STATUS.inventory.increaseConsumption('toothbrushes');
+    stage.options.toothbrushes.consumption.text = GAME_STATUS.inventory.getConsumption('toothbrushes');
   });
   stage.options.toothbrushes.decreaseButton.on('pointerdown', function(){
-    GAME_STATUS.inventory.decreaseToothbrushesConsumption();
-    stage.options.toothbrushes.consumption.text = GAME_STATUS.inventory.getToothbrushesConsumption();
+    GAME_STATUS.inventory.decreaseConsumption('toothbrushes');
+    stage.options.toothbrushes.consumption.text = GAME_STATUS.inventory.getConsumption('toothbrushes');
   });
 
+
+  stage.options.toothpaste.label.text = GAME_STATUS.inventory.getLabel('toothpaste');
+  stage.options.toothpaste.data.text = GAME_STATUS.inventory.getCount('toothpaste');
+  stage.options.toothpaste.consumption.text = GAME_STATUS.inventory.getConsumption('toothpaste');
   stage.options.toothpaste.increaseButton.on('pointerdown', function(){
-    GAME_STATUS.inventory.increaseToothpasteConsumption();
-    stage.options.toothpaste.consumption.text = GAME_STATUS.inventory.getToothpasteConsumption();
+    GAME_STATUS.inventory.increaseConsumption('toothpaste');
+    stage.options.toothpaste.consumption.text = GAME_STATUS.inventory.getConsumption('toothpaste');
   });
   stage.options.toothpaste.decreaseButton.on('pointerdown', function(){
-    GAME_STATUS.inventory.decreaseToothpasteConsumption();
-    stage.options.toothpaste.consumption.text = GAME_STATUS.inventory.getToothpasteConsumption();
+    GAME_STATUS.inventory.decreaseConsumption('toothpaste');
+    stage.options.toothpaste.consumption.text = GAME_STATUS.inventory.getConsumption('toothpaste');
   });
 
+  stage.options.floss.label.text = GAME_STATUS.inventory.getLabel('floss');
+  stage.options.floss.data.text = GAME_STATUS.inventory.getCount('floss');
+  stage.options.floss.consumption.text = GAME_STATUS.inventory.getConsumption('floss');
   stage.options.floss.increaseButton.on('pointerdown', function(){
-    GAME_STATUS.inventory.increaseFlossConsumption();
-    stage.options.floss.consumption.text = GAME_STATUS.inventory.getFlossConsumption();
+    GAME_STATUS.inventory.increaseConsumption('floss');
+    stage.options.floss.consumption.text = GAME_STATUS.inventory.getConsumption('floss');
   });
   stage.options.floss.decreaseButton.on('pointerdown', function(){
-    GAME_STATUS.inventory.decreaseFlossConsumption();
-    stage.options.floss.consumption.text = GAME_STATUS.inventory.getFlossConsumption();
+    GAME_STATUS.inventory.decreaseConsumption('floss');
+    stage.options.floss.consumption.text = GAME_STATUS.inventory.getConsumption('floss');
   });
 
   app.stage.addChild(stage);
@@ -130,24 +130,6 @@ function landmarkDialogue(){
   app.stage.removeChildren();
 
   app.stage.addChild(buildDialogueBox(GAME_STATUS.location.nextLandmark.notes.journalEntry, landmark, false));
-}
-
-function deathFailure(){
-  console.log("Beginning failure sequence");
-  GAME_STATUS.isRunning = false;
-  // clear the canvas
-  app.stage.removeChildren();
-
-  app.stage.addChild(buildDialogueBox(str_story['death_failure'], reset, false));
-}
-
-function deathSuccess(){
-  console.log("Beginning success sequence");
-  GAME_STATUS.isRunning = false;
-  // clear the canvas
-  app.stage.removeChildren();
-
-  app.stage.addChild(buildDialogueBox(str_story['death_success'], reset, false));
 }
 
 // resets the game state before returning to main menu

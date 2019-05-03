@@ -22,6 +22,14 @@ function birthWorld(){
   }
   // update player location
   GAME_STATUS.location.nextLandmark = GAME_STATUS.location.previousLandmark.location.nextLandmark;
+
+  // update village inventory
+  let keys = GAME_STATUS.village.inventory.getKeys();
+  for(let i = 0; i < keys.length; i++){
+    let value = getRandomInt(GAME_STATUS.village.inventory.maxSize)
+      % GAME_STATUS.village.inventory.getSpace();
+    GAME_STATUS.village.inventory.setCount(keys[i], value)
+  }
 }
 
 function birthIntro(){
@@ -29,40 +37,7 @@ function birthIntro(){
   // clear the canvas
   app.stage.removeChildren();
 
-  app.stage.addChild(buildDialogueBox(str_story['birth_intro'], birthNaming, true));
-}
-
-function birthNaming(){
-  console.log("Beginning birth naming");
-  // clear the canvas
-  app.stage.removeChildren();
-
-  let nameView = buildNamingView();
-
-  // input handling
-  let maxLength = 10;
-
-  let keyObjects = enableInputLogging(nameView.playerName, maxLength);
-
-  let enterKey = keyboard("Enter");
-  enterKey.press = () => {
-    if(nameView.playerName.text.length > 0){
-      disableInputLogging(keyObjects);
-      keyObjects = enableInputLogging(nameView.friendName, maxLength);
-      enterKey.press = () => {
-        if(nameView.friendName.text.length > 0){
-          disableInputLogging(keyObjects);
-          disableInputLogging([enterKey]);
-
-          GAME_STATUS.playerName = nameView.playerName.text;
-          GAME_STATUS.friendName = nameView.friendName.text;
-          birthSupplies();
-        }
-      }
-    }
-  };
-
-  app.stage.addChild(nameView);
+  app.stage.addChild(buildDialogueBox(str_story['birth_intro'], birthSupplies, true));
 }
 
 function birthSupplies(){
@@ -70,22 +45,92 @@ function birthSupplies(){
   // clear the canvas
   app.stage.removeChildren();
 
-  // text
-  const instructionsStyle = new PIXI.TextStyle({
-    fill: "White",
-    align: "center",
-    fontFamily: "font_ttf_fivebyfive",
-    fontSize: 24,
-    wordWrap: true,
-    wordWrapWidth: 600
+  let keys = GAME_STATUS.inventory.getKeys();
+  let supplyView = buildBirthSupplies(keys.length);
+  supplyView.counter.num.text = GAME_STATUS.inventory.maxSize - GAME_STATUS.inventory.getSpace();
+  supplyView.counter.denom.text = GAME_STATUS.inventory.maxSize;
+  supplyView.submitButton.visible = ! GAME_STATUS.inventory.spaceRemains();
+
+  for(let i = 0; i < keys.length; i++){
+    supplyView.items[i].itemName.text = GAME_STATUS.inventory.getLabel(keys[i]);
+    supplyView.items[i].youAmount.text = GAME_STATUS.inventory.getCount(keys[i]);
+    supplyView.items[i].villageAmount.text = GAME_STATUS.village.inventory.getCount(keys[i]);
+
+    supplyView.items[i].increaseButton.on('pointerdown', function(){
+      exchangeSingleItem(GAME_STATUS.village.inventory, GAME_STATUS.inventory, keys[i]);
+      supplyView.items[i].youAmount.text = GAME_STATUS.inventory.getCount(keys[i]);
+      supplyView.items[i].villageAmount.text = GAME_STATUS.village.inventory.getCount(keys[i]);
+      supplyView.counter.num.text = GAME_STATUS.inventory.maxSize - GAME_STATUS.inventory.getSpace();
+      supplyView.counter.denom.text = GAME_STATUS.inventory.maxSize;
+      supplyView.submitButton.visible = ! GAME_STATUS.inventory.spaceRemains();
+    });
+
+    supplyView.items[i].decreaseButton.on('pointerdown', function(){
+      exchangeSingleItem(GAME_STATUS.inventory, GAME_STATUS.village.inventory, keys[i]);
+      supplyView.items[i].youAmount.text = GAME_STATUS.inventory.getCount(keys[i]);
+      supplyView.items[i].villageAmount.text = GAME_STATUS.village.inventory.getCount(keys[i]);
+      supplyView.counter.num.text = GAME_STATUS.inventory.maxSize - GAME_STATUS.inventory.getSpace();
+      supplyView.counter.denom.text = GAME_STATUS.inventory.maxSize;
+      supplyView.submitButton.visible = ! GAME_STATUS.inventory.spaceRemains();
+    });
+  }
+
+  supplyView.submitButton.on('pointerdown', function(){
+    birthBehavior();
   });
 
-  let instructions = new PIXI.Text(str_story['birth_supplies'],instructionsStyle);
-  instructions.anchor.set(0.5,0.0);
-  instructions.position.set(app.screen.width/2,15);
+  app.stage.addChild(supplyView);
+}
 
-  let tradeView = buildTradeView("Click for basic supplies");
-  tradeView.dummy.on('pointerdown', travel);
+function birthBehavior(){
+  console.log("Beginning birth behavior");
+  // clear the canvas
+  app.stage.removeChildren();
 
-  app.stage.addChild(instructions, tradeView);
+  let keys = GAME_STATUS.inventory.getKeys();
+  let behaviorView = buildBirthBehavior(keys.length);
+
+  for(let i = 0; i < keys.length; i++){
+    behaviorView.items[i].itemName.text = GAME_STATUS.inventory.getLabel(keys[i]);
+    behaviorView.items[i].action.text = GAME_STATUS.inventory.getActionLabel(keys[i]);
+    behaviorView.items[i].consumptionRate.text = GAME_STATUS.inventory.getConsumption(keys[i]);
+
+    behaviorView.items[i].buttons.up.on('pointerdown', function(){
+      GAME_STATUS.inventory.increaseConsumption(keys[i]);
+      behaviorView.items[i].consumptionRate.text = GAME_STATUS.inventory.getConsumption(keys[i]);
+    });
+
+    behaviorView.items[i].buttons.down.on('pointerdown', function(){
+      GAME_STATUS.inventory.decreaseConsumption(keys[i]);
+      behaviorView.items[i].consumptionRate.text = GAME_STATUS.inventory.getConsumption(keys[i]);
+    });
+  }
+
+  behaviorView.submitButton.on('pointerdown', function(){
+    GAME_STATUS.updateVillageBehavior();
+    birthTasking();
+  });
+
+  app.stage.addChild(behaviorView);
+}
+
+function birthTasking(){
+  console.log("Beginning birth tasking");
+  // clear the canvas
+  app.stage.removeChildren();
+
+  let taskingView = buildDialogueBox(str_story['birth_tasking'], birthJourneyBegins, true);
+
+  app.stage.addChild(taskingView);
+}
+
+function birthJourneyBegins(){
+  console.log("Beginning Journey");
+  // clear the canvas
+  app.stage.removeChildren();
+
+  let journeyView = buildBirthJourneyBegins();
+  journeyView.button.on('pointerdown', travel);
+
+  app.stage.addChild(journeyView);
 }

@@ -1,70 +1,114 @@
 // counters for possible possessions
 class Inventory {
-  constructor() {
-    this.toothbrushes = {label: "Toothbrushes: ", count: 5.0,   unit: "brushes", consumption: 1.0};
-    this.toothpaste = {label: "Toothpaste: ", count: 10.0,  unit: "fl oz",   consumption: 1.0};
-    this.floss      = {label: "Floss: ", count: 100.0, unit: "cm",      consumption: 1.0};
+  constructor(maxSize) {
+    this.maxSize = maxSize;
+    this.contents = {
+      toothbrushes: {
+        label: "Toothbrushes: ",
+        count: 0.0,
+        action: "brush",
+        consumption: 0,
+        minConsumption: 0,
+        maxConsumption: 24
+      },
+      toothpaste: {
+        label: "Toothpaste: ",
+        count: 0.0,
+        action: "apply",
+        consumption: 0,
+        minConsumption: 0,
+        maxConsumption: 24
+      },
+      floss: {
+        label: "Floss: ",
+        count: 0.0,
+        action: "floss",
+        consumption: 0,
+        minConsumption: 0,
+        maxConsumption: 24
+      },
+      mouthwash: {
+        label: "Mouthwash: ",
+        count: 0.0,
+        action: "rinse",
+        consumption: 0,
+        minConsumption: 0,
+        maxConsumption: 24
+      },
+    };
   }
 
-  getToothbrushes(){
-    return this.toothbrushes.count + " " + this.toothbrushes.unit;
+  getKeys(){
+    return Object.keys(this.contents);
   }
 
-  getToothbrushesConsumption(){
-    return this.toothbrushes.consumption + " " + this.toothbrushes.unit;
+  spaceRemains(){
+    return this.getSpace() > 0;
   }
 
-  increaseToothbrushesConsumption(){
-    if(this.toothbrushes.consumption < this.toothbrushes.count){
-      this.toothbrushes.consumption++;
+  getSpace(){
+    let totalContents = 0;
+    let keys = this.getKeys();
+    for(let i = 0; i < keys.length; i++){
+      totalContents +=  this.contents[keys[i]].count;
     }
+    return this.maxSize - totalContents;
   }
 
-  decreaseToothbrushesConsumption(){
-    if(this.toothbrushes.consumption > 0){
-      this.toothbrushes.consumption--;
+  getLabel(item){
+    return this.contents[item].label;
+  }
+
+  getActionLabel(item){
+    return this.contents[item].action;
+  }
+
+  getConsumption(item){
+    return this.contents[item].consumption;
+  }
+
+  setConsumption(item, rate){
+    this.contents[item].consumption = rate;
+  }
+
+  getCount(item){
+    return this.contents[item].count;
+  }
+
+  setCount(item, count){
+    this.contents[item].count = count;
+  }
+
+  increaseConsumption(item){
+    if(this.contents[item].consumption < this.contents[item].maxConsumption){
+      this.contents[item].consumption++;
+      return true;
     }
+    return false;
   }
 
-
-  getToothpaste(){
-    return this.toothpaste.count + " " + this.toothpaste.unit;
-  }
-
-  getToothpasteConsumption(){
-    return this.toothpaste.consumption + " " + this.toothpaste.unit;
-  }
-
-  increaseToothpasteConsumption(){
-    if(this.toothpaste.consumption < this.toothpaste.count){
-      this.toothpaste.consumption++;
+  decreaseConsumption(item){
+    if(this.contents[item].consumption > this.contents[item].minConsumption){
+      this.contents[item].consumption--;
+      return true;
     }
+    return false;
   }
 
-  decreaseToothpasteConsumption(){
-    if(this.toothpaste.consumption > 0){
-      this.toothpaste.consumption--;
+  increase(item){
+    if(this.spaceRemains()){
+      this.contents[item].count++;
+      return true;
     }
+    return false;
   }
 
-
-  getFloss(){
-    return this.floss.count + " " + this.floss.unit;
-  }
-
-  getFlossConsumption(){
-    return this.floss.consumption + " " + this.floss.unit;
-  }
-
-  increaseFlossConsumption(){
-    if(this.floss.consumption < this.floss.count){
-      this.floss.consumption++;
+  decrease(item){
+    if(this.contents[item].count > 0){
+      this.contents[item].count--;
+      return true;
     }
+    return false;
   }
 
-  decreaseFlossConsumption(){
-    if(this.floss.consumption > 0){
-      this.floss.consumption--;
-    }
-  }
 }
