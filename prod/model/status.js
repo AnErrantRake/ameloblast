@@ -111,7 +111,7 @@ class Status {
       // generate random amount
       let value = getRandomInt(scavengeResult.maxSize) % scavengeResult.getSpace();
       scavengeResult.setCount(keys[i], value);
-      //trade up to 5 into player inventory
+      //trade up to 1/10 of max into player inventory
       exchangeCountItems(scavengeResult, this.inventory, keys[i], (this.inventory.maxSize * 1/10));
     }
   }
@@ -159,7 +159,7 @@ class Status {
           if(this.daysElapsed % getRandomInt(53) === 0){
             DISEASES[i].setContracted(true);
             this.health.addDisease(DISEASES[i]);
-            GAME_EVENT = "You've contracted " + DISEASES[i].type;
+            GAME_EVENT = "You have " + DISEASES[i].type;
             return;
           }
         }

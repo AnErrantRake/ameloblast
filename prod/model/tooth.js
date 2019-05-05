@@ -14,35 +14,35 @@ class Tooth {
     console.log("Cleaning with " + tool);
     switch(tool){
       case "toothbrush":
-        // citation -
+        // citation - TBD
         this.removeBuildup(this.proximalBuildup, 0/100);
         this.removeBuildup(this.occlusalBuildup, 35/100);
         this.removeBuildup(this.facialBuildup,   35/100);
         this.removeBuildup(this.lingualBuildup,  35/100);
         break;
       case "toothpaste":
-        // citation -
+        // citation - TBD
         this.removeBuildup(this.proximalBuildup, 5/100);
         this.removeBuildup(this.occlusalBuildup, 10/100);
         this.removeBuildup(this.facialBuildup,   15/100);
         this.removeBuildup(this.lingualBuildup,  15/100);
         break;
       case "toothbrush_with_toothpaste":
-        // citation -
+        // citation - TBD
         this.removeBuildup(this.proximalBuildup, 10/100);
         this.removeBuildup(this.occlusalBuildup, 65/100);
         this.removeBuildup(this.facialBuildup,   60/100);
         this.removeBuildup(this.lingualBuildup,  60/100);
         break;
       case "floss":
-        // citation -
+        // citation - TBD
         this.removeBuildup(this.proximalBuildup, 70/100);
         this.removeBuildup(this.occlusalBuildup, 5/100);
         this.removeBuildup(this.facialBuildup,   5/100);
         this.removeBuildup(this.lingualBuildup,  5/100);
         break;
       case "mouthwash":
-        // citation -
+        // citation - TBD
         this.removeBuildup(this.proximalBuildup, 5/100);
         this.removeBuildup(this.occlusalBuildup, 10/100);
         this.removeBuildup(this.facialBuildup,   10/100);
@@ -55,7 +55,7 @@ class Tooth {
 
   removeBuildup(buildup, efficacy){
     // efficacy as random value within percentage of maximum plaque
-    let change = getRandomInt(efficacy * buildup.precipitationPoint);
+    let change = getRandomIntInRange(efficacy * buildup.precipitationPoint, buildup.precipitationPoint);
     buildup.update(change, -1);
   }
 

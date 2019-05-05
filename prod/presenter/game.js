@@ -192,7 +192,7 @@ function landmarkDialogue(){
 
   let stage = buildDialogueBox(GAME_STATUS.location.nextLandmark.getNotes(),
   function() {
-    disableInputLogging(citationKey);
+    disableInputLogging([citationKey]);
     landmark();
   }, false);
 
@@ -221,7 +221,7 @@ function landmarkDialogue(){
 // resets the game state before returning to main menu
 function reset(){
   GAME_STATUS.isRunning = false;
-  status = null;
+  GAME_STATUS = null;
 
   mainMenu();
 }

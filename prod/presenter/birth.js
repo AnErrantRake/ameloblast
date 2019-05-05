@@ -1,5 +1,8 @@
 // new game builder
 function birth(){
+  GAME_STATUS = new Status();
+  GAME_EVENT = null;
+  GAME_STATE = 'none';
   birthWorld();
   birthIntro();
 }

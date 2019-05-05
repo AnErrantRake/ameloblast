@@ -154,7 +154,26 @@ var DISEASES = [
       type: "gingivitis",
       severity: 10.0,
       healthThreshold: 7/10,
-      citationKey: ""
+      citationKey: "DarbyWalsh.2015Dht" //pg324
     }
   ),
+
+  new Disease().buildDisease(
+    {
+      type: "periodontitis",
+      severity: 50.0,
+      healthThreshold: 5/10,
+      citationKey: "DarbyWalsh.2015Dht" //pg324
+    }
+  ),
+
+  new Disease().buildDisease(
+    {
+      type: "necrotizing gingivitis",
+      severity: 100.0,
+      healthThreshold: 2/10,
+      citationKey: "DarbyWalsh.2015Dht" //pg573
+    }
+  ),
+
 ]

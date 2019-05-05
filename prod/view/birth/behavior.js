@@ -16,13 +16,13 @@ function buildBirthBehavior(count){
   const style = new PIXI.TextStyle({
     fill: "White",
     align: "center",
-    fontFamily: "font_ttf_notepen",
+    fontFamily: "Arial",
     fontSize: step,
     wordWrap: true,
     wordWrapWidth: app.screen.width - step
   });
 
-  let desc = new PIXI.Text("placeholder",style);
+  let desc = new PIXI.Text(str_story['birth_behavior'],style);
   desc.anchor.set(0.5, 0);
   desc.position.set(app.screen.width/2, step);
   cage.addChild(desc);
