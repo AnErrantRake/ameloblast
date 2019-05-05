@@ -11,6 +11,7 @@ function buildLandmarkActionsView(landmarkType){
   // resume travel
   let resumeTravel = buildMenuOption(actions[0],itemSize);
   resumeTravel.position.y = startY;
+  resumeTravel.visible = false;
 
   // talk
   let talk = buildMenuOption(actions[1],itemSize);

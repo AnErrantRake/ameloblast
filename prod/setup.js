@@ -4,11 +4,8 @@ function setup(){
   console.log("Loading resources");
   let debug = keyboard("Escape");
   debug.press = () => {
-    rest();
+    landmark();
   };
-
-//  app.autoStart = false;
-//  app.ticker.add(travelUI);
 
   // fonts - bitmap
   PIXI.Loader.shared.add("font_bm_bonefish","../fonts/Bonefish.fnt"); //handwritten cursive
@@ -27,7 +24,6 @@ function setup(){
   PIXI.Loader.shared.add("texture_amelo_right", "gfx/amelo_right.png");
   PIXI.Loader.shared.add("texture_icon_up", "gfx/icon_up.png");
   PIXI.Loader.shared.add("texture_icon_down", "gfx/icon_down.png");
-  PIXI.Loader.shared.add("texture_landmark_info_placeholder", "gfx/landmark_info_placeholder.png");
 
   // load fonts before loading assets and building main menu
   WebFontConfig = {

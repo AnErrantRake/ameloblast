@@ -8,10 +8,15 @@ function buildRestActionsView(){
   let resumeTravel = buildMenuOption("resume travel",itemSize);
   resumeTravel.position.y = 15;
 
+  // scavenge
+  let scavenge = buildMenuOption("scavenge for a week",itemSize);
+  scavenge.position.y = resumeTravel.y + resumeTravel.height + 15;
+
   // container
   let cage = new PIXI.Container();
-  cage.addChild(resumeTravel);
+  cage.addChild(resumeTravel, scavenge);
   cage.resumeTravel = resumeTravel;
+  cage.scavenge = scavenge;
 
   return cage;
 }

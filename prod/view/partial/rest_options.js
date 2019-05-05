@@ -5,27 +5,38 @@ function buildRestOptionsView(){
   let step = 18;
   let center = 0;
   let startY = 0;
-  let itemCount = 3;
+
+  let labelStyle = {font: step + "px FiveByFive", tint: "0xFFFFFF"};
+
+  let header = new PIXI.BitmapText("inventory and hygiene", labelStyle);
+  header.anchor.set(0.5,0.5);
+  header.position.set(center, startY);
 
   let toothbrushes = buildRestOption(step);
-  toothbrushes.position.set(center, startY + (itemCount*step));
+  toothbrushes.position.set(header.x + step, header.y + header.height + step + step);
 
   let toothpaste = buildRestOption(step);
-  toothpaste.position.set(toothbrushes.position.x, toothbrushes.position.y + (itemCount*step));
+  toothpaste.position.set(toothbrushes.x, toothbrushes.y + toothbrushes.height + step);
 
   let floss = buildRestOption(step);
-  floss.position.set(toothpaste.position.x, toothpaste.position.y + (itemCount*step));
+  floss.position.set(toothpaste.x, toothpaste.y + toothpaste.height + step);
+
+  let mouthwash = buildRestOption(step);
+  mouthwash.position.set(floss.x, floss.y + floss.height + step);
 
   // container
   let cage = new PIXI.Container();
   cage.addChild(
+    header,
     toothbrushes,
     toothpaste,
-    floss
+    floss,
+    mouthwash
   )
   cage.toothbrushes = toothbrushes;
   cage.toothpaste = toothpaste;
   cage.floss = floss;
+  cage.mouthwash = mouthwash;
 
   return cage;
 }
@@ -54,18 +65,18 @@ function buildRestOption(step){
 
   // modifiers
   let increase = new PIXI.Sprite(PIXI.Loader.shared.resources.texture_icon_up.texture);
-  increase.width = increase.height = step - 4;
+  increase.width = increase.height = step * 1.5;
   increase.interactive = true;
   increase.buttonMode = true;
-  increase.anchor.set(0.0,0.8);
-  increase.position.set(center + step, consumptionLabel.position.y + step);
+  increase.anchor.set(0.0,0.0);
+  increase.position.set(center + step * 3.5, startY);
 
   let decrease = new PIXI.Sprite(PIXI.Loader.shared.resources.texture_icon_down.texture);
-  decrease.width = decrease.height = step - 4;
+  decrease.width = decrease.height = step * 1.5;
   decrease.interactive = true;
   decrease.buttonMode = true;
-  decrease.anchor.set(0.0,0.8);
-  decrease.position.set(decrease.position.x + (3*step), consumptionLabel.position.y + step);
+  decrease.anchor.set(0.0,0.0);
+  decrease.position.set(center + step * 5.5, startY);
 
   let option = new PIXI.Container();
   option.addChild(

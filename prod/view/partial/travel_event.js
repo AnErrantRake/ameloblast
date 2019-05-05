@@ -19,6 +19,8 @@ function buildTravelEventView(){
   // container
   let cage = new PIXI.Container();
   cage.addChild(txtBG, event);
+  cage.interactive = true;
+  cage.buttonMode = true;
   cage.event = event.textBox;
 
   return cage;

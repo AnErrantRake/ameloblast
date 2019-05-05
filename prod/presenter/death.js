@@ -1,7 +1,8 @@
 
 function deathFailure(){
   console.log("Beginning failure sequence");
-  GAME_STATUS.isRunning = false;
+  GAME_STATE = 'death';
+  GAME_STATUS.isAlive = false;
   // clear the canvas
   app.stage.removeChildren();
 
@@ -10,7 +11,8 @@ function deathFailure(){
 
 function deathSuccess(){
   console.log("Beginning success sequence");
-  GAME_STATUS.isRunning = false;
+  GAME_STATE = 'death';
+  GAME_STATUS.isAlive = false;
   // clear the canvas
   app.stage.removeChildren();
 

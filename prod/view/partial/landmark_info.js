@@ -9,7 +9,7 @@ function buildLandmarkInfoView(landmarkInfo) {
     fontFamily: "font_ttf_notepen",
     fontSize: 32,
     wordWrap: true,
-    wordWrapWidth: 390
+    wordWrapWidth: app.screen.width - (32 * 2)
   });
 
   let title = new PIXI.Text(landmarkInfo.title,titleStyle);
@@ -22,7 +22,7 @@ function buildLandmarkInfoView(landmarkInfo) {
     fontFamily: "font_ttf_notepen",
     fontSize: 24,
     wordWrap: true,
-    wordWrapWidth: 360
+    wordWrapWidth: app.screen.width - (24 * 2)
   });
 
   let description = new PIXI.Text(landmarkInfo.description,descStyle);

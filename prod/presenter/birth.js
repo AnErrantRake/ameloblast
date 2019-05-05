@@ -22,6 +22,7 @@ function birthWorld(){
   }
   // update player location
   GAME_STATUS.location.nextLandmark = GAME_STATUS.location.previousLandmark.location.nextLandmark;
+  GAME_STATUS.getForecast();
 
   // update village inventory
   let keys = GAME_STATUS.village.inventory.getKeys();
@@ -34,6 +35,7 @@ function birthWorld(){
 
 function birthIntro(){
   console.log("Beginning birth sequence");
+  GAME_STATE = 'birth';
   // clear the canvas
   app.stage.removeChildren();
 
@@ -57,7 +59,7 @@ function birthSupplies(){
     supplyView.items[i].villageAmount.text = GAME_STATUS.village.inventory.getCount(keys[i]);
 
     supplyView.items[i].increaseButton.on('pointerdown', function(){
-      exchangeSingleItem(GAME_STATUS.village.inventory, GAME_STATUS.inventory, keys[i]);
+      exchangeCountItems(GAME_STATUS.village.inventory, GAME_STATUS.inventory, keys[i], 10);
       supplyView.items[i].youAmount.text = GAME_STATUS.inventory.getCount(keys[i]);
       supplyView.items[i].villageAmount.text = GAME_STATUS.village.inventory.getCount(keys[i]);
       supplyView.counter.num.text = GAME_STATUS.inventory.maxSize - GAME_STATUS.inventory.getSpace();
@@ -66,7 +68,25 @@ function birthSupplies(){
     });
 
     supplyView.items[i].decreaseButton.on('pointerdown', function(){
-      exchangeSingleItem(GAME_STATUS.inventory, GAME_STATUS.village.inventory, keys[i]);
+      exchangeCountItems(GAME_STATUS.inventory, GAME_STATUS.village.inventory, keys[i], 10);
+      supplyView.items[i].youAmount.text = GAME_STATUS.inventory.getCount(keys[i]);
+      supplyView.items[i].villageAmount.text = GAME_STATUS.village.inventory.getCount(keys[i]);
+      supplyView.counter.num.text = GAME_STATUS.inventory.maxSize - GAME_STATUS.inventory.getSpace();
+      supplyView.counter.denom.text = GAME_STATUS.inventory.maxSize;
+      supplyView.submitButton.visible = ! GAME_STATUS.inventory.spaceRemains();
+    });
+
+    supplyView.items[i].increase5xButton.on('pointerdown', function(){
+      exchangeCountItems(GAME_STATUS.village.inventory, GAME_STATUS.inventory, keys[i], 50);
+      supplyView.items[i].youAmount.text = GAME_STATUS.inventory.getCount(keys[i]);
+      supplyView.items[i].villageAmount.text = GAME_STATUS.village.inventory.getCount(keys[i]);
+      supplyView.counter.num.text = GAME_STATUS.inventory.maxSize - GAME_STATUS.inventory.getSpace();
+      supplyView.counter.denom.text = GAME_STATUS.inventory.maxSize;
+      supplyView.submitButton.visible = ! GAME_STATUS.inventory.spaceRemains();
+    });
+
+    supplyView.items[i].decrease5xButton.on('pointerdown', function(){
+      exchangeCountItems(GAME_STATUS.inventory, GAME_STATUS.village.inventory, keys[i], 50);
       supplyView.items[i].youAmount.text = GAME_STATUS.inventory.getCount(keys[i]);
       supplyView.items[i].villageAmount.text = GAME_STATUS.village.inventory.getCount(keys[i]);
       supplyView.counter.num.text = GAME_STATUS.inventory.maxSize - GAME_STATUS.inventory.getSpace();

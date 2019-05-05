@@ -6,6 +6,7 @@ class Landmark {
     this.info = {title: "default title", description: "a default description of multiple words and phrases that ideally overlaps within the defined boundaries"};
     this.notes = null;
     this.location = null;
+    this.hasBeenRead = false;
   }
 
   // helper function for array construction - overloaded constructor
@@ -16,7 +17,16 @@ class Landmark {
     this.notes = landmarkStruct.notes;
     this.location = new GameLocation();
     this.location.position = landmarkStruct.position;
-    
+
     return this;
+  }
+
+  getNotes(){
+    this.hasBeenRead = true;
+    return this.notes.journalEntry;
+  }
+
+  getCitation(){
+    return this.notes.citation;
   }
 }

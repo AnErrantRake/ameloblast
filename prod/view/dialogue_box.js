@@ -31,7 +31,7 @@ function buildDialogueBox (textArray, callback, hasNext) {
     button = new PIXI.Sprite(
       PIXI.Loader.shared.resources.texture_dialogue_return.texture);
   }
-  button.position.set(app.screen.width/2,app.screen.height);
+  button.position.set(app.screen.width/2,app.screen.height - 10);
   button.anchor.set(0.5,1.0);
   button.interactive = true;
   button.buttonMode = true;

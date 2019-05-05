@@ -42,6 +42,28 @@ class Inventory {
     return Object.keys(this.contents);
   }
 
+  getDayUse(){
+    let keys = this.getKeys();
+    let output = [];
+
+    // for every item
+    for(let i = 0; i < keys.length; i++){
+      // for consumption of that item - j is set count
+      for(let j = 0; j < this.contents[keys[i]].consumption; j++){
+        // if available - decrement
+        if(this.decrease(keys[i])){
+          // check set count
+          if(output.length < j + 1){
+            output.push([]);
+          }
+          output[j].push(keys[i]);
+        }
+      }
+    }
+
+    return output;
+  }
+
   spaceRemains(){
     return this.getSpace() > 0;
   }

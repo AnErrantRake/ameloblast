@@ -8,7 +8,7 @@ class GameLocation {
   }
 
   distanceToNext(){
-    if(this.nextLandmark.location.position <= this.position){
+    if(this.nextLandmark === null || this.nextLandmark.location.position <= this.position){
       return 0;
     }
     return this.nextLandmark.location.position - this.position;

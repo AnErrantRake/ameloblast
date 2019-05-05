@@ -1,5 +1,5 @@
 // travel view - movement graphic, event and status display
-function buildTravelView(){
+function buildTravelView(enroute){
   console.log("Building TravelView");
   // background
   let background = new PIXI.Sprite(
@@ -14,9 +14,20 @@ function buildTravelView(){
                    ]
   const ameloblast = new PIXI.AnimatedSprite(textures);
   ameloblast.animationSpeed = (2/60); //2 frames per second
-  ameloblast.position.set(600, 100);
-  ameloblast.height = 150;
-  ameloblast.width = 300;
+  if(enroute){
+    // right side, driving left
+    ameloblast.height = 150;
+    ameloblast.width = 300;
+    ameloblast.anchor.set(1.0, 0.0);
+    ameloblast.position.set(app.screen.width, 100);
+  }
+  else {
+    // left side, driving right
+    ameloblast.height = 150;
+    ameloblast.width = -300;
+    ameloblast.anchor.set(1.0, 0.0);
+    ameloblast.position.set(0, 100);
+  }
   ameloblast.play();
 
   // event view
@@ -44,7 +55,13 @@ function buildTravelView(){
 
   // container
   let cage = new PIXI.Container();
-  cage.addChild(background, ameloblast, event, txtBG, status, pauseButton);
+  cage.addChild(background,
+                ameloblast,
+                event,
+                txtBG,
+                status,
+                pauseButton
+              );
   cage.pauseButton = pauseButton;
   cage.vehicle = ameloblast;
   cage.eventView = event;

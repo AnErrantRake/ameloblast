@@ -2,20 +2,20 @@
 function buildRestStatusView(){
   console.log("Building RestStatusView");
 
-  let step = 18;
+  let step = 24;
   let labelStyle = {font: step + "px FiveByFive", tint: "0xFFFFFF", align: "right"};
   let dataStyle = {font: step + "px FiveByFive", tint: "0xFFFFFF", align: "left"};
   let center = 0;
   let startY = 0;
 
-  // date
-  let dateLabel = new PIXI.BitmapText(str_travel['status_date'], labelStyle);
-  dateLabel.anchor.set(1.0,0.5);
-  dateLabel.position.set(center, startY);
+  // time
+  let timeLabel = new PIXI.BitmapText(str_travel['status_time'], labelStyle);
+  timeLabel.anchor.set(1.0,0.5);
+  timeLabel.position.set(center, startY);
 
-  let dateData = new PIXI.BitmapText("~~~~", dataStyle);
-  dateData.anchor.set(0.0,0.5);
-  dateData.position.set(center + 15, dateLabel.position.y);
+  let timeData = new PIXI.BitmapText("~~~~", dataStyle);
+  timeData.anchor.set(0.0,0.5);
+  timeData.position.set(center + 15, timeLabel.position.y);
 
   // environment
   let environLabel = new PIXI.BitmapText(str_travel['status_environment'], labelStyle);
@@ -25,6 +25,15 @@ function buildRestStatusView(){
   let environData = new PIXI.BitmapText("pancakes", dataStyle);
   environData.anchor.set(0.0,0.5);
   environData.position.set(center + 15, environLabel.position.y);
+
+  // supplies
+  let suppliesLabel = new PIXI.BitmapText(str_travel['status_supplies'], labelStyle);
+  suppliesLabel.anchor.set(1.0,0.5);
+  suppliesLabel.position.set(center, startY + (3 * step));
+
+  let suppliesData = new PIXI.BitmapText("x units", dataStyle);
+  suppliesData.anchor.set(0.0,0.5);
+  suppliesData.position.set(center + 15, suppliesLabel.position.y);
 
   // health
   let healthLabel = new PIXI.BitmapText(str_travel['status_health'], labelStyle);
@@ -46,14 +55,16 @@ function buildRestStatusView(){
 
   // container
   let cage = new PIXI.Container();
-  cage.addChild(dateLabel, dateData,
+  cage.addChild(timeLabel, timeData,
                 environLabel, environData,
                 healthLabel, healthData,
+                suppliesLabel, suppliesData,
                 nextLandmarkLabel, nextLandmarkData
               );
-  cage.date = dateData;
+  cage.time = timeData;
   cage.environment = environData;
   cage.health = healthData;
+  cage.supplies = suppliesData;
   cage.nextLandmark = nextLandmarkData;
 
   return cage;
